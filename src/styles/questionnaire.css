@@ -1,0 +1,449 @@
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes floatingCard {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(79, 123, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(79, 123, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(79, 123, 255, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.questionnaire-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  animation: fadeIn 0.5s ease-out;
+  perspective: 1000px;
+}
+
+.progress-track {
+  background: rgba(45, 45, 45, 0.5);
+  border-radius: 8px;
+  height: 4px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4f7bff, #6b8eff, #879fff, #4f7bff);
+  background-size: 300% 100%;
+  animation: rotateGradient 3s linear infinite;
+  border-radius: 8px;
+  position: relative;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.header-card {
+  background: linear-gradient(135deg, #4f7bff 0%, #3d5eff 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(79, 123, 255, 0.2);
+  transition: all 0.3s ease;
+  animation: floatingCard 6s ease-in-out infinite;
+}
+
+.header-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  animation: glowPulse 2s infinite;
+}
+
+.header-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%) -50px 0,
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%) -50px 0,
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+  background-size: 100px 100px;
+  animation: rotateGradient 20s linear infinite;
+  opacity: 0.3;
+}
+
+.question-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #2d2d2d;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
+
+.question-card.active {
+  border-color: #4f7bff;
+  box-shadow: 
+    0 4px 20px rgba(79, 123, 255, 0.15),
+    0 0 0 1px rgba(79, 123, 255, 0.2);
+  animation: scaleIn 0.3s ease-out;
+}
+
+.question-card:not(.active) {
+  cursor: pointer;
+  filter: saturate(0.8);
+}
+
+.question-card:not(.active):hover {
+  transform: translateX(5px) scale(1.02);
+  background-color: #252525;
+}
+
+.question-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(79, 123, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate3d(0, 0, -1px);
+  pointer-events: none;
+}
+
+.question-card.active::before {
+  opacity: 1;
+}
+
+.option-button {
+  background-color: #2d2d2d;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.option-button:hover {
+  background-color: #3d3d3d;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.option-button.selected {
+  background: linear-gradient(135deg, #4f7bff 0%, #3d5eff 100%);
+  animation: pulse 0.3s ease-in-out;
+  box-shadow: 0 0 20px rgba(79, 123, 255, 0.3);
+}
+
+.option-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+}
+
+.option-button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: 0s;
+}
+
+.count-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.count-badge::before {
+  content: '🎯';
+  font-size: 1rem;
+  animation: bounce 1s ease infinite;
+}
+
+.count-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  animation: rotateGradient 3s linear infinite;
+}
+
+.icon-container {
+  background-color: #2d2d2d;
+  padding: 0.75rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-container.active {
+  background-color: #4f7bff;
+  transform: rotate(360deg);
+}
+
+.icon-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+.description-text {
+  color: #a0a0a0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active .description-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.completion-check {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  animation: scaleIn 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.completion-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4f7bff, #6b8eff);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effets de survol avancés */
+.option-button:hover .description-text {
+  color: #ffffff;
+}
+
+/* Support du mode sombre */
+@media (prefers-color-scheme: dark) {
+  .question-card {
+    background-color: #1a1a1a;
+  }
+  
+  .option-button {
+    background-color: #252525;
+  }
+}
+
+/* Animations pour les transitions de page */
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Animation de chargement */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Effet de perspective au survol */
+.question-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+}
+
+/* Animation des icônes */
+.fr-icon-search-fill {
+  animation: floatingCard 3s ease-in-out infinite;
+}
+
+/* Effet de vague au clic */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

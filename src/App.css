@@ -1,0 +1,297 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Styles globaux */
+.fr-background-default--grey {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Styles pour les cartes de réglementation */
+.regulation-card {
+  background: white;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.regulation-card:hover {
+  transform: translateY(-2px);
+}
+
+.regulation-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.regulation-card__title {
+  margin: 0;
+  color: var(--text-title-grey);
+}
+
+.regulation-card__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+.regulation-card__tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Styles pour la barre de recherche */
+.search-container {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.filter-tag {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-tag:hover {
+  opacity: 0.8;
+}
+
+.filter-tag--active {
+  background-color: var(--background-active-blue-france);
+  color: white;
+}
+
+/* Styles pour le questionnaire */
+.questionnaire-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.questionnaire-step {
+  margin-bottom: 2rem;
+}
+
+.questionnaire-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Styles pour les boutons */
+.fr-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.fr-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Styles pour les onglets */
+.fr-tabs {
+  margin-bottom: 2rem;
+}
+
+.fr-tabs__list {
+  display: flex;
+  border-bottom: 2px solid var(--border-default-grey);
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.fr-tabs__tab {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  color: var(--text-title-grey);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none !important;
+}
+
+.fr-tabs__tab:hover,
+.fr-tabs__tab:visited {
+  color: var(--text-title-grey);
+  text-decoration: none !important;
+}
+
+.fr-tabs__tab--active,
+.fr-tabs__tab--active:visited {
+  color: #000091 !important;
+  background-color: rgba(0, 0, 145, 0.1);
+  border-bottom: 2px solid #000091;
+  margin-bottom: -2px;
+  text-decoration: none !important;
+}
+
+.fr-tabs__panel {
+  display: none;
+  padding: 2rem 0;
+}
+
+.fr-tabs__panel--active {
+  display: block;
+}
+
+/* Ajustements pour le responsive */
+@media (max-width: 768px) {
+  .fr-tabs__list {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .fr-tabs__tab {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid var(--border-default-grey);
+  }
+
+  .fr-tabs__tab--active {
+    border-left: 4px solid #000091;
+    border-bottom: 1px solid var(--border-default-grey);
+    margin-bottom: 0;
+    padding-left: calc(1.5rem - 4px);
+  }
+}
+
+/* Styles pour les cartes */
+.fr-card {
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.fr-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Styles pour les boutons */
+.fr-btn {
+  transition: all 0.2s ease-in-out;
+}
+
+.fr-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Styles pour les badges et tags */
+.fr-badge, .fr-tag {
+  transition: all 0.2s ease-in-out;
+}
+
+.fr-badge:hover, .fr-tag:hover {
+  opacity: 0.9;
+}
+
+/* Styles pour les cartes */
+.fr-card {
+  margin-bottom: 1rem;
+}
+
+.fr-card--grey {
+  background-color: var(--background-contrast-grey);
+  padding: 1.5rem;
+}
+
+/* Styles pour la barre de recherche */
+.fr-search-bar {
+  margin-bottom: 1.5rem;
+}
+
+/* Styles pour le questionnaire */
+.fr-fieldset {
+  margin-bottom: 1.5rem;
+}
+
+.fr-radio-group {
+  margin-bottom: 0.5rem;
+}
+
+/* Styles pour les statistiques */
+.fr-grid-row--gutters {
+  margin: -1rem;
+}
+
+.fr-grid-row--gutters > * {
+  padding: 1rem;
+}
+
+/* Styles pour le responsive */
+@media (max-width: 768px) {
+  .regulation-card__header {
+    flex-direction: column;
+  }
+  
+  .regulation-card__tags {
+    margin-top: 1rem;
+  }
+  
+  .search-filters {
+    flex-direction: column;
+  }
+}
